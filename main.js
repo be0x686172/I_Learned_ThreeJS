@@ -1,4 +1,4 @@
-import { Game } from './src/core/Game';
+import { Game } from './src/manager/GameManager';
 
 // Lancer le jeu
 new Game();

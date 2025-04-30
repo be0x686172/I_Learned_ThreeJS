@@ -3,5 +3,7 @@ export class Camera {
     {
         this.parent = Game;
         this.camera = new this.parent.THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
+        
+        this.camera.position.set(0, 1, 0);
     }
 }
