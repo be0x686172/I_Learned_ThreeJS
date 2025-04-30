@@ -1,3 +1,5 @@
+import * as THREE from 'three';
+
 export class FreeArenaSceneMap {
     constructor(FreeArenaScene)
     {
@@ -11,9 +13,9 @@ export class FreeArenaSceneMap {
 
     createSceneMapVisual()
     {
-        this.geometry = new this.parent.THREE.PlaneGeometry(10, 10);
-        this.material = new this.parent.THREE.MeshBasicMaterial({ color: 0xffffff });
-        this.mesh = new this.parent.THREE.Mesh(this.geometry, this.material); 
+        this.geometry = new THREE.PlaneGeometry(10, 10);
+        this.material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+        this.mesh = new THREE.Mesh(this.geometry, this.material); 
 
         this.mesh.rotation.x = -Math.PI / 2;
 

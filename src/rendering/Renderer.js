@@ -1,8 +1,9 @@
+import * as THREE from 'three';
+
 export class Renderer {
-    constructor(Game)
+    constructor()
     {
-        this.parent = Game;
-        this.renderer = new this.parent.THREE.WebGLRenderer();
+        this.renderer = new THREE.WebGLRenderer();
 
         // La taille du renderer
         this.renderer.setSize(window.innerWidth, window.innerHeight);

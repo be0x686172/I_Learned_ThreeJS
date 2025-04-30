@@ -1,20 +1,25 @@
 import * as THREE from 'three';
 import { FreeArenaSceneMap } from "./map/FreeAreneSceneMap";
+import { Player } from '../../entities/player/Player';
 
 export class FreeArenaScene {
     constructor()
     {
-        this.THREE = THREE;
-
+        // Créer la scène
         this.createScene();
+
+        // Créer la map
         new FreeArenaSceneMap(this).createSceneMap();
+
+        // Créer le joueur
+        this.player = new Player();
     }
 
     createScene()
     {
-        this.scene = new this.THREE.Scene();
+        this.scene = new THREE.Scene();
 
         this.scene.name = "Arène libre";
-        this.scene.background = new this.THREE.Color().setHex(0x73a7d9);
+        this.scene.background = new THREE.Color().setHex(0x73a7d9);
     }
 }

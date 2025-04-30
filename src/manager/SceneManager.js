@@ -1,7 +1,6 @@
 export class SceneManager {
-    constructor(Game)
+    constructor()
     {
-        this.parent = Game;
         this.currentScene = null;
     }
 
@@ -12,6 +11,6 @@ export class SceneManager {
 
     updateScene(renderer, camera)
     {
-        renderer.render(this.currentScene, camera);
+        renderer.render(this.currentScene.scene, camera);
     }
 }
