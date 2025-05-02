@@ -1,23 +1,17 @@
 import { SceneManager } from "./SceneManager";
 import { Renderer } from '../rendering/Renderer';
-import { Camera } from '../rendering/Camera';
-import threeWindowResize from 'three-window-resize';
 
 // Importer la scène par défaut du lancement du jeu
-import { FreeArenaScene } from '../scenes/freeArena/FreeArenaScene';
+import { FreeArenaScene } from '../scenes/freeArenaScene/FreeArenaScene';
 
-export class Game {
+export class GameManager {
     constructor()
     {
-        this.SceneManager = new SceneManager(this);
-        this.Renderer = new Renderer(this);
-        this.Camera = new Camera(this);
+        this.SceneManager = new SceneManager();
+        this.Renderer = new Renderer();
 
-        // Définir la scène par défaut du lancement du jeu
-        this.SceneManager.setScene(new FreeArenaScene());
-
-        // autoResize
-        new threeWindowResize(this.Renderer.renderer, this.Camera.camera);
+        // Définir la scène (le mode) par défaut du lancement du jeu
+        this.SceneManager.setScene(new FreeArenaScene()); 
 
         // Mettre à jour le jeu
         this.animate();
@@ -28,6 +22,6 @@ export class Game {
         requestAnimationFrame(this.animate.bind(this));
         
         // Mettre à jour les scènes
-        this.SceneManager.updateScene(this.Renderer.renderer, this.Camera.camera);
+        this.SceneManager.updateScene(this.Renderer.renderer, this.SceneManager.currentScene.Camera.camera);     
     }
 }

@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { FreeArenaSceneMap } from "./map/FreeAreneSceneMap";
+import { FreeArenaMap } from '../../maps/FreeAreneMap';
 import { Player } from '../../entities/player/Player';
 
 export class FreeArenaScene {
@@ -7,12 +7,15 @@ export class FreeArenaScene {
     {
         // Créer la scène
         this.createScene();
-
+        
         // Créer la map
-        new FreeArenaSceneMap(this).createSceneMap();
+        this.FreeArenaMap = new FreeArenaMap(this).createSceneMap();
 
         // Créer le joueur
-        this.player = new Player();
+        this.Player = new Player(this);
+
+        // Créer la caméra de la scène
+        this.Camera = this.Player.Camera; 
     }
 
     createScene()

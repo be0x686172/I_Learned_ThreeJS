@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-export class FreeArenaSceneMap {
+export class FreeArenaMap {
     constructor(FreeArenaScene)
     {
         this.parent = FreeArenaScene;
