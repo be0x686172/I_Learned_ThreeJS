@@ -10,6 +10,23 @@ export class PlayerCamera {
         this.camera.position.set(0, 1, 0);
     }
 
+    getDirection()
+    {
+        const cameraDirection = this.camera.getWorldDirection(new THREE.Vector3(0, 0, 0));
+        return cameraDirection;
+    }
+
+    getDirectionRightSide()
+    {
+        const cameraDirection = this.camera.getWorldDirection(new THREE.Vector3(0, 0, 0));
+        const cameraDirectionRightSide = new THREE.Vector3();
+
+        // Produit vectoriel 
+        cameraDirectionRightSide.crossVectors(new THREE.Vector3(0, 1, 0), cameraDirection);
+
+        return cameraDirectionRightSide;
+    }
+
     update()
     {
         this.camera.position.copy(this.parent.BodyPlayer.body.position);

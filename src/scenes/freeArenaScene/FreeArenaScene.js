@@ -10,7 +10,7 @@ export class FreeArenaScene {
         
         // Créer la map
         this.FreeArenaMap = new FreeArenaMap(this);
-        
+
         // Créer le joueur
         this.Player = new Player(this);
     }
@@ -36,6 +36,5 @@ export class FreeArenaScene {
         {
             this.Player.update();
         }
-
     }
 }
