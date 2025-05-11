@@ -43,9 +43,9 @@ export class FreeArenaMap {
         this.world.addBody(this.body);
     }
 
-    update()
+    update(deltaTime)
     {
         // Mettre à jour le monde physique
-        this.world.step(1 / 60);
+        this.world.step(1 / 60, deltaTime, 3);
     }
 }

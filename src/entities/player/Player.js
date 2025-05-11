@@ -25,9 +25,9 @@ export class Player {
         })
     }
     
-    update()
+    update(deltaTime)
     {
         this.PlayerCamera.update();
-        this.MovementsPlayer.update();
+        this.MovementsPlayer.update(deltaTime);
     }
 } 

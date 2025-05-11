@@ -23,18 +23,18 @@ export class FreeArenaScene {
         this.scene.background = new THREE.Color().setHex(0x73a7d9);
     }
 
-    update()
+    update(deltaTime)
     {
         // Mettre à jour la caméra dans CameraManager
         this.CameraManager.setCamera(this.currentCamera);
         
         // Mettre à jour la map et le monde physique
-        this.FreeArenaMap.update();
+        this.FreeArenaMap.update(deltaTime);
 
         // Mettre à jour le joueur
         if (this.Player)
         {
-            this.Player.update();
+            this.Player.update(deltaTime);
         }
     }
 }

@@ -4,7 +4,7 @@ export class StatesPlayer {
         this.parent = Player;
 
         // Mouvement
-        this.speedMove = 5;
+        this.speedMove = 500;
         this.forwardMove = false;
         this.backwardMove = false;
         this.rightMove = false;
