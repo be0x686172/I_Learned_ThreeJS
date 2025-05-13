@@ -10,7 +10,6 @@ import { FreeArenaScene } from '../scenes/freeArenaScene/FreeArenaScene';
 export class GameManager {
     constructor()
     {
-        // DeltaTime
         this.lastTime = performance.now();
 
         // Activer le compteur FPS
@@ -24,7 +23,6 @@ export class GameManager {
         // Définir la scène (le mode) par défaut du lancement du jeu
         this.SceneManager.setScene(new FreeArenaScene()); 
         
-        // Mettre à jour le jeu
         this.animate();
     }
 
@@ -34,7 +32,6 @@ export class GameManager {
 
         requestAnimationFrame(this.animate.bind(this));
 
-        // Calculer le delta time
         this.currentTime = performance.now();
         this.deltaTime = (this.currentTime - this.lastTime) / 1000;
         this.lastTime = this.currentTime;

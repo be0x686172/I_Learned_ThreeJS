@@ -9,6 +9,7 @@ export class ControlsPlayer {
     createControls()
     {
         this.createControlsMove();
+        this.createControlReloadWeapon();
     }
 
     createControlsMove()
@@ -52,5 +53,15 @@ export class ControlsPlayer {
                     break;
             }
         });
+    }
+
+    createControlReloadWeapon()
+    {
+        document.addEventListener('mouseup', (e) => {
+            if (e.button == 0)
+            {
+                this.parent.StatesPlayer.isShooting = true;
+            }
+        })
     }
 }

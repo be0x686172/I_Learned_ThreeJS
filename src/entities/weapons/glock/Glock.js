@@ -1,3 +1,5 @@
+import * as THREE from 'three';
+
 export class Glock {
     constructor(WeaponPlayer)
     {
@@ -6,22 +8,56 @@ export class Glock {
         this.playerCamera = this.parent.parent.PlayerCamera.camera;
         this.scene = this.parent.parent.parent.scene;
 
-        this.loadGlockModel();
+        // Les animations
+        this.mixer = null;
+        this.animations = {};
+        this.currentAnimation = null;
+
+        // Propriétés de l'arme
+        this.bullets = 5;
+        this.chargers = 5;
+        this.chargerCapacity = 5;
+        this.fireRate = 320;
+        this.lastShotTime = 0;
+
+        this.loadWeaponModel();
     }
 
-    loadGlockModel()
+    loadWeaponModel()
     {
         this.loader.load('../../../../../public/models/weapons/glock.glb', (gltf) => {
-            this.glock = gltf.scene;
+            this.weapon = gltf.scene;
 
-            // Configuration
-            this.glock.position.set(-0.3, -0.65, -1.05);
-            this.glock.rotation.set(0, Math.PI / 2, 0);
-            this.glock.scale.set(0.22, 0.22, 0.22);
+            this.weapon.position.set(-0.3, -0.65, -1.05);
+            this.weapon.rotation.set(0, Math.PI / 2, 0);
+            this.weapon.scale.set(0.22, 0.22, 0.22);
 
-            // L'ajouter en tant qu'enfant à la caméra du joueur
-            this.playerCamera.add(this.glock);
+            this.playerCamera.add(this.weapon);
             this.scene.add(this.playerCamera);
+            
+            this.mixer = new THREE.AnimationMixer(this.weapon);
+        
+            gltf.animations.forEach((clip) => {
+                this.animations[clip.name] = this.mixer.clipAction(clip);
+            })
+
+            this.currentAnimation = this.animations['Armature|Idle'].play();
+            this.currentAnimation.play();
         });
+    }
+
+    playAnimation(name, repetition = THREE.LoopOnce)
+    {
+        const animation = this.animations[name];
+
+        animation.reset();
+        animation.play();
+        animation.setLoop(repetition)
+        animation.clampWhenFinished = true;
+    }
+
+    update(deltaTime)
+    {
+        this.mixer.update(deltaTime);
     }
 }

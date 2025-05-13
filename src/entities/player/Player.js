@@ -31,5 +31,6 @@ export class Player {
     {
         this.PlayerCamera.update();
         this.MovementsPlayer.update(deltaTime);
+        this.WeaponPlayer.update(deltaTime);
     }
 } 

@@ -7,19 +7,10 @@ import { Player } from '../../entities/player/Player';
 export class FreeArenaScene {
     constructor()
     {   
-        // Créer la scène
         this.createScene();
-
-        // Créer le loader pour les modèles 3D
         this.loader = new GLTFLoader();
-
-        // Créer la map
         this.FreeArenaMap = new FreeArenaMap(this);
-
-        // Créer les lumières de la map
         this.FreeArenaLight = new FreeArenaLight(this);
-
-        // Créer le joueur
         this.Player = new Player(this);
     }
 
@@ -33,13 +24,10 @@ export class FreeArenaScene {
 
     update(deltaTime)
     {
-        // Mettre à jour la caméra dans CameraManager
         this.CameraManager.setCamera(this.currentCamera);
         
-        // Mettre à jour la map et le monde physique
         this.FreeArenaMap.update(deltaTime);
 
-        // Mettre à jour le joueur
         if (this.Player)
         {
             this.Player.update(deltaTime);
