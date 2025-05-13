@@ -4,6 +4,7 @@ import { BodyPlayer } from "./components/BodyPlayer";
 import { StatesPlayer } from "./components/StatesPlayer";
 import { ControlsPlayer } from "./components/ControlsPlayer";
 import { MovementsPlayer } from "./components/MovementsPlayer";
+import { WeaponPlayer } from "./components/WeaponPlayer";
 
 export class Player {
     constructor(scene)
@@ -15,7 +16,8 @@ export class Player {
         this.StatesPlayer = new StatesPlayer(this);
         this.ControlsPlayer = new ControlsPlayer(this);
         this.MovementsPlayer = new MovementsPlayer(this);
-
+        this.WeaponPlayer = new WeaponPlayer(this);
+ 
         // Mettre à jour la caméra dans CameraManager
         this.parent.currentCamera = this.PlayerCamera.camera;
 

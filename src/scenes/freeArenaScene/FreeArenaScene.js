@@ -1,5 +1,7 @@
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { FreeArenaMap } from '../../maps/FreeAreneMap';
+import { FreeArenaLight } from '../../lights/FreeArenaLight';
 import { Player } from '../../entities/player/Player';
 
 export class FreeArenaScene {
@@ -7,9 +9,15 @@ export class FreeArenaScene {
     {   
         // Créer la scène
         this.createScene();
-        
+
+        // Créer le loader pour les modèles 3D
+        this.loader = new GLTFLoader();
+
         // Créer la map
         this.FreeArenaMap = new FreeArenaMap(this);
+
+        // Créer les lumières de la map
+        this.FreeArenaLight = new FreeArenaLight(this);
 
         // Créer le joueur
         this.Player = new Player(this);
@@ -19,7 +27,7 @@ export class FreeArenaScene {
     {
         this.scene = new THREE.Scene();
         
-        this.scene.name = "Arène libre";
+        this.scene.name = "Free Arena";
         this.scene.background = new THREE.Color().setHex(0x73a7d9);
     }
 
