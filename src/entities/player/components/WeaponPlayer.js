@@ -9,7 +9,7 @@ export class WeaponPlayer {
 
     shoot()
     {
-        if (this.parent.StatesPlayer.isShooting && this.currentWeapon.currentAmmo > 0)
+        if (this.parent.StatesPlayer.isShooting && this.currentWeapon.currentAmmo > 0 && !this.currentWeapon.animations['Armature|Reload'].isRunning())
         {
             const now = performance.now();
 
@@ -20,25 +20,24 @@ export class WeaponPlayer {
                 this.currentWeapon.currentAmmo -= 1;
                 this.currentWeapon.lastShotTime = now;
             }
-
-            this.parent.StatesPlayer.isShooting = false;
         }
+
+        this.parent.StatesPlayer.isShooting = false;
     }
 
     reload()
     {
         if (this.parent.StatesPlayer.isReloading)
         {
-            if (this.currentWeapon.currentAmmo != this.currentWeapon.magazineSize)
+            if (this.currentWeapon.currentAmmo != this.currentWeapon.magazineSize && this.currentWeapon.reserveAmmo > 0)
             {
                 // Jouer l'animation
                 this.currentWeapon.playAnimation('Armature|Reload');
 
                 // Système de rechargement
-                const missingBullets = this.currentWeapon.magazineSize - this.currentWeapon.currentAmmo;
-                console.log('Après : ' + this.currentWeapon.currentAmmo + ' / 5');
-                this.currentWeapon.currentAmmo = this.currentWeapon.currentAmmo + this.missingBullets;
-                console.log('Après : ' + this.currentWeapon.currentAmmo + ' / 5');
+                this.currentWeapon.reserveAmmo -= this.currentWeapon.magazineSize - this.currentWeapon.currentAmmo;
+                this.currentWeapon.currentAmmo = this.currentWeapon.currentAmmo + (this.currentWeapon.magazineSize - this.currentWeapon.currentAmmo);
+                console.log('Balles restantes dans la réserve : ' + this.currentWeapon.reserveAmmo)
             }
 
             this.parent.StatesPlayer.isReloading = false;

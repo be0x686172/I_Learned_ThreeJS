@@ -15,7 +15,7 @@ export class Glock {
 
         // Propriétés de l'arme
         this.currentAmmo = 5;
-        this.reserveAmmo = 20;
+        this.reserveAmmo = 10;
         this.magazineSize = 5;
         this.fireRate = 320;
         this.lastShotTime = 0;
