@@ -9,7 +9,8 @@ export class ControlsPlayer {
     createControls()
     {
         this.createControlsMove();
-        this.createControlReloadWeapon();
+        this.createControlShoot();
+        this.createControlReload();
     }
 
     createControlsMove()
@@ -55,12 +56,22 @@ export class ControlsPlayer {
         });
     }
 
-    createControlReloadWeapon()
+    createControlShoot()
     {
         document.addEventListener('mouseup', (e) => {
             if (e.button == 0)
             {
                 this.parent.StatesPlayer.isShooting = true;
+            }
+        })
+    }
+
+    createControlReload()
+    {
+        document.addEventListener('keyup', (e) => {
+            if (e.key == 'r')
+            {
+                this.parent.StatesPlayer.isReloading = true;
             }
         })
     }

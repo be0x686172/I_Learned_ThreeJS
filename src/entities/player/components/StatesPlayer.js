@@ -10,5 +10,6 @@ export class StatesPlayer {
         this.leftMove = false;
 
         this.isShooting = false;
+        this.isReloading = false;
     }
 }

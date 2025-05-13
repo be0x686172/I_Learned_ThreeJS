@@ -9,19 +9,15 @@ export class WeaponPlayer {
 
     shoot()
     {
-        if (this.parent.StatesPlayer.isShooting && this.currentWeapon.bullets > 0)
+        if (this.parent.StatesPlayer.isShooting && this.currentWeapon.currentAmmo > 0)
         {
             const now = performance.now();
 
             // Cooldown
             if (now - this.currentWeapon.lastShotTime >= this.currentWeapon.fireRate)
             {
-                // Jouer l'animation
                 this.currentWeapon.playAnimation('Armature|Shoot')
-
-                // Retirer une balle du chargeur
-                this.currentWeapon.bullets -= 1;
-
+                this.currentWeapon.currentAmmo -= 1;
                 this.currentWeapon.lastShotTime = now;
             }
 
@@ -29,9 +25,30 @@ export class WeaponPlayer {
         }
     }
 
+    reload()
+    {
+        if (this.parent.StatesPlayer.isReloading)
+        {
+            if (this.currentWeapon.currentAmmo != this.currentWeapon.magazineSize)
+            {
+                // Jouer l'animation
+                this.currentWeapon.playAnimation('Armature|Reload');
+
+                // Système de rechargement
+                const missingBullets = this.currentWeapon.magazineSize - this.currentWeapon.currentAmmo;
+                console.log('Après : ' + this.currentWeapon.currentAmmo + ' / 5');
+                this.currentWeapon.currentAmmo = this.currentWeapon.currentAmmo + this.missingBullets;
+                console.log('Après : ' + this.currentWeapon.currentAmmo + ' / 5');
+            }
+
+            this.parent.StatesPlayer.isReloading = false;
+        }
+    }
+
     update(deltaTime)
     {
         this.shoot();
+        this.reload();
         
         if (this.currentWeapon.mixer)
         {

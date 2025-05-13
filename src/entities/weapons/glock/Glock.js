@@ -14,9 +14,9 @@ export class Glock {
         this.currentAnimation = null;
 
         // Propriétés de l'arme
-        this.bullets = 5;
-        this.chargers = 5;
-        this.chargerCapacity = 5;
+        this.currentAmmo = 5;
+        this.reserveAmmo = 20;
+        this.magazineSize = 5;
         this.fireRate = 320;
         this.lastShotTime = 0;
 
