@@ -6,7 +6,7 @@ A simple first-person scene made with **Three.js**, showcasing an interactive we
 
 ## 🚀 Features
 
-- Move forward, backward, left, and right (WASD)
+- Move forward, backward, left, and right (ZASD)
 - Shoot (Left Click)
 - Reload (R)
 - Import of a 3D weapon model (GLTF/GLB)
