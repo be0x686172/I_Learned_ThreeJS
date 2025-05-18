@@ -2,6 +2,8 @@
 
 A simple first-person scene made with **Three.js**, showcasing an interactive weapon model.
 
+<br>
+
 ## 🚀 Features
 
 - Move forward, backward, left, and right (WASD)
@@ -10,11 +12,15 @@ A simple first-person scene made with **Three.js**, showcasing an interactive we
 - Import of a 3D weapon model (GLTF/GLB)
 - Basic lighting and camera control
 
+<br>
+
 ## 🧰 Stack
 
 - [Three.js](https://threejs.org/)
 - [Vite](https://vitejs.dev/)
 - [GLTFLoader](https://threejs.org/docs/#examples/en/loaders/GLTFLoader)
+
+<br>
 
 ## 🖥️ Run Locally
 
