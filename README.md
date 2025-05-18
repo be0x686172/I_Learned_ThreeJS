@@ -32,8 +32,6 @@ The hardest part of a coding project isn't coding, but implementing its architec
 
 Make sure you have [Node.js](https://nodejs.org/) installed.
 
-1. Clone the repository
-
 ```bash
 git clone https://github.com/be0x686172/Learn_ThreeJS.git
 cd Learn_ThreeJS
