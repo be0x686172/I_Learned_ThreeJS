@@ -2,9 +2,13 @@
 
 A simple first-person scene made with **Three.js**, showcasing an interactive weapon model.
 
+<br>
+
 ## 💡 What I learned
 
 The hardest part of a coding project is not coding, but setting up its architecture.
+
+<br>
 
 ## 🚀 Features
 
