@@ -2,7 +2,9 @@
 
 A simple first-person scene made with **Three.js**, showcasing an interactive weapon model.
 
-<br>
+## 💡 What I learned
+
+The hardest part of a coding project is not coding, but setting up its architecture.
 
 ## 🚀 Features
 
@@ -31,4 +33,4 @@ Make sure you have [Node.js](https://nodejs.org/) installed.
 ```bash
 git clone https://github.com/be0x686172/Learn_ThreeJS.git
 cd Learn_ThreeJS
-npx vite
+npx vite 
