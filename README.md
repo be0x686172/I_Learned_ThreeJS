@@ -23,6 +23,6 @@ Make sure you have [Node.js](https://nodejs.org/) installed.
 1. Clone the repository
 
 ```bash
-git clone https://github.com/ton-utilisateur/ton-repo.git
-cd ton-repo
+git clone https://github.com/be0x686172/Learn_ThreeJS.git
+cd Learn_ThreeJS
 npx vite
