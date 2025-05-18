@@ -6,7 +6,7 @@ A simple first-person scene made with **Three.js**, showcasing an interactive we
 
 ## 💡 What I learned
 
-The hardest part of a coding project is not coding, but setting up its architecture.
+The hardest part of a coding project isn't coding, but implementing its architecture. You need to create scalable, maintainable, and easily debuggable code that's understandable to others, and where each class must be independent.
 
 <br>
 
