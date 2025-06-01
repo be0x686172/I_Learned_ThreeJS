@@ -1,4 +1,4 @@
-# 🔫 Démo d'Arme FPS en Three.js
+# 🔫 Démo d'arme FPS en Three.js
 
 Une scène simple en vue à la première personne réalisée avec **Three.js**, mettant en avant un modèle d'arme interactif.
 
@@ -30,7 +30,7 @@ La partie la plus difficile d’un projet de code, ce n’est pas le code lui-m�
 
 ## 🖥️ Lancer en local
 
-Assure-toi d’avoir [Node.js](https://nodejs.org/) installé.
+Assurez-vous d’avoir [Node.js](https://nodejs.org/) installé.
 
 ```bash
 git clone https://github.com/be0x686172/Learn_ThreeJS.git
